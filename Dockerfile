@@ -6,12 +6,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# ???? Windows CRLF ?? LF??? ^M ??
+# ?? Windows ?????
 RUN sed -i "s/\r$//" /opt/application/run.sh \
  && chmod +x /opt/application/run.sh
 
 ENV PYTHONUNBUFFERED=1
-ENV PORT=8080
-EXPOSE 8080
+EXPOSE 8000
 
 ENTRYPOINT ["/opt/application/run.sh"]
